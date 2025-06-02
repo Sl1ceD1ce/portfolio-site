@@ -36,5 +36,5 @@ type SocialButtonProps = {
 };
 
 function SocialButton({ icon, href }: SocialButtonProps) {
-  return <a href={href}>{icon}</a>;
+  return <a href={href} target="_blank">{icon}</a>;
 }
