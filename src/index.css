@@ -1,0 +1,51 @@
+:root {
+  font-family: Inter;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: black;
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 {
+  font-size: 4vmax;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+.SocialsButtonContainer {
+  display: flex;
+  gap: 3em; /* adds spacing between children */
+}
+
+.Introduction {
+  font-size: 4vmax;
+  font-family: Inter;
+  font-weight: bold;
+}
+
+.IntroductionInfo {
+  font-size: 1.6vmax;
+  font-family: Inter;
+  font-weight: normal;
+}
+
+.HeaderBox {
+  padding-left: 2%;
+  padding-right: 2%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 2px solid black;
+  border-radius: 4px 4px 4px 4px;
+  -webkit-box-shadow: 6px 10px 2px -2px #000000;
+  box-shadow: 6px 10px 2px -2px #000000;
+}
