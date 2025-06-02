@@ -18,8 +18,8 @@ export function SocialsButtons() {
         iconProps={{
           color: "#000000",
           strokeWidth: 1.3,
-          width: "3em",
-          height: "3em",
+          width: "2.5em",
+          height: "2.5em",
         }}
       >
         {socials.map(({ href, icon }) => (
