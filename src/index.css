@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: black;
-  background-color: white;
+  background-color: #00b4d8;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -13,25 +13,20 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
-  font-size: 4vmax;
-  font-family: Inter;
-  font-weight: bold;
-}
-
 .SocialsButtonContainer {
   display: flex;
-  gap: 3em; /* adds spacing between children */
+  gap: 3em;
+  /* adds spacing between children */
 }
 
 .Introduction {
-  font-size: 4vmax;
+  font-size: 3.5vmax;
   font-family: Inter;
   font-weight: bold;
 }
 
 .IntroductionInfo {
-  font-size: 1.6vmax;
+  font-size: 1.3vmax;
   font-family: Inter;
   font-weight: normal;
 }
@@ -42,6 +37,7 @@ h1 {
   position: absolute;
   top: 50%;
   left: 50%;
+  background-color: #caf0f8;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border: 2px solid black;
