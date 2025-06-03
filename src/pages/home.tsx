@@ -1,12 +1,14 @@
-import { SocialsButtons } from "../components/Buttons";
-import { Introduction, IntroductionInfo } from "../components/Text";
+import { SocialsButtons, ColorThemeButton } from "../components/Buttons";
+import { Introduction, IntroductionInfo } from "../components/Introduction";
+import "./home.css"
+
 
 function Home() {
-  // Todo: add buttons for the main header page to links
   // Todo: add dark and light mode feature
   // Todo: add the menu page button to access other parts of the site
   return (
     <body>
+      <ColorThemeButton />
       <div className="HeaderBox">
         <Introduction />
         <IntroductionInfo />

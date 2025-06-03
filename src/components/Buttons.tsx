@@ -1,4 +1,5 @@
-import { IconoirProvider, Github, Linkedin, Page, Mail } from "iconoir-react";
+import { IconoirProvider, Github, Linkedin, Page, Mail, SunLight } from "iconoir-react";
+import "./Components.css"
 
 const socials = [
   {
@@ -19,12 +20,23 @@ const socials = [
   }
 ];
 
+export function ColorThemeButton() {
+  return (<button className="ColorThemeButton">
+    <IconoirProvider iconProps={{
+      width: "2.5em",
+      height: "2.5em",
+      strokeWidth: 2,
+    }}>
+      <SunLight />
+    </IconoirProvider>
+  </button >)
+}
+
 export function SocialsButtons() {
   return (
     <div className="SocialsButtonContainer">
       <IconoirProvider
         iconProps={{
-          color: "#000000",
           strokeWidth: 1.3,
           width: "2.5em",
           height: "2.5em",
@@ -44,5 +56,5 @@ type SocialButtonProps = {
 };
 
 function SocialButton({ icon, href }: SocialButtonProps) {
-  return <a href={href} target="_blank">{icon}</a>;
+  return <a className="SocialButton" href={href} target="_blank">{icon}</a>;
 }
