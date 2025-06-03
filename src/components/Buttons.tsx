@@ -1,4 +1,4 @@
-import { IconoirProvider, Github, Linkedin } from "iconoir-react";
+import { IconoirProvider, Github, Linkedin, Page, Mail } from "iconoir-react";
 
 const socials = [
   {
@@ -9,6 +9,14 @@ const socials = [
     href: "https://www.linkedin.com/in/jason-lukman-3574b728a",
     icon: <Linkedin />,
   },
+  {
+    href: "",
+    icon: <Page />,
+  },
+  {
+    href: "",
+    icon: <Mail />
+  }
 ];
 
 export function SocialsButtons() {
