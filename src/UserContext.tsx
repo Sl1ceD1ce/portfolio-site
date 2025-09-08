@@ -7,7 +7,7 @@ interface UserContextType {
   toggleTheme: () => void;
 }
 
-export const UserContext = createContext<UserContextType | null>(null);
+const UserContext = createContext<UserContextType | null>(null);
 
 export const useUserContext = () => {
   const context = useContext(UserContext);

@@ -20,7 +20,7 @@ const socials = [
     icon: <Linkedin />,
   },
   {
-    href: "",
+    href: "/JasonLukmanResume.pdf",
     icon: <Page />,
   },
   {
@@ -32,7 +32,6 @@ const socials = [
 // create user context to access the dark mode state
 export function ColorThemeButton() {
   const { darkMode, toggleTheme } = useUserContext();
-
 
   return (
     <button className="ColorThemeButton" onClick={toggleTheme}>
