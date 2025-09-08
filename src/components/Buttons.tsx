@@ -1,5 +1,14 @@
-import { IconoirProvider, Github, Linkedin, Page, Mail, SunLight } from "iconoir-react";
-import "./Components.css"
+import {
+  IconoirProvider,
+  Github,
+  Linkedin,
+  Page,
+  Mail,
+  SunLight,
+  HalfMoon,
+} from "iconoir-react";
+import "./Components.css";
+import { useUserContext } from "../UserContext.tsx";
 
 const socials = [
   {
@@ -16,20 +25,40 @@ const socials = [
   },
   {
     href: "",
-    icon: <Mail />
-  }
+    icon: <Mail />,
+  },
 ];
 
+// create user context to access the dark mode state
 export function ColorThemeButton() {
-  return (<button className="ColorThemeButton">
-    <IconoirProvider iconProps={{
-      width: "2.5em",
-      height: "2.5em",
-      strokeWidth: 2,
-    }}>
-      <SunLight />
-    </IconoirProvider>
-  </button >)
+  const { darkMode, toggleTheme } = useUserContext();
+
+
+  return (
+    <button className="ColorThemeButton" onClick={toggleTheme}>
+      {darkMode ? (
+        <IconoirProvider
+          iconProps={{
+            width: "2.5em",
+            height: "2.5em",
+            strokeWidth: 2,
+          }}
+        >
+          <HalfMoon />
+        </IconoirProvider>
+      ) : (
+        <IconoirProvider
+          iconProps={{
+            width: "2.5em",
+            height: "2.5em",
+            strokeWidth: 2,
+          }}
+        >
+          <SunLight />
+        </IconoirProvider>
+      )}
+    </button>
+  );
 }
 
 export function SocialsButtons() {
@@ -56,5 +85,9 @@ type SocialButtonProps = {
 };
 
 function SocialButton({ icon, href }: SocialButtonProps) {
-  return <a className="SocialButton" href={href} target="_blank">{icon}</a>;
+  return (
+    <a className="SocialButton" href={href} target="_blank">
+      {icon}
+    </a>
+  );
 }

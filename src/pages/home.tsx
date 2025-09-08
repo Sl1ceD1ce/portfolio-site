@@ -1,6 +1,7 @@
 import { SocialsButtons, ColorThemeButton } from "../components/Buttons";
 import { Introduction, IntroductionInfo } from "../components/Introduction";
 import "./home.css"
+import 'animate.css';
 
 
 function Home() {

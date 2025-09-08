@@ -1,38 +1,37 @@
 .SocialsButtonContainer {
-    display: flex;
-    gap: 3em;
-    /* adds spacing between children */
+  display: flex;
+  gap: 3em;
+  /* adds spacing between children */
 }
 
 .Introduction {
-    font-size: 4em;
-    font-family: Inter;
-    font-weight: bold;
+  font-size: 4em;
+  font-family: Inter;
+  font-weight: bold;
 }
 
 .IntroductionInfo {
-    font-size: 1.5em;
-    font-family: Inter;
-    font-weight: normal;
+  font-size: 1.5em;
+  font-family: Inter;
+  font-weight: normal;
 }
 
 .SocialButton {
-    color: black;
+  color: var(--button-color);
 }
 
 .SocialButton:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
 
 .ColorThemeButton {
-    color: black;
-    background: transparent;
-    border-color: transparent;
-    position: fixed;
-    left: 2em;
-    top: 2em;
+  background: transparent;
+  border-color: transparent;
+  position: fixed;
+  left: 2em;
+  top: 2em;
 }
 
 .ColorThemeButton:hover {
-    transform: scale(1.15);
+  transform: scale(1.15);
 }
