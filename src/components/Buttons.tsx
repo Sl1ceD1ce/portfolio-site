@@ -3,7 +3,7 @@ import {
   Github,
   Linkedin,
   Page,
-  Mail,
+  Code,
   SunLight,
   HalfMoon,
 } from "iconoir-react";
@@ -24,8 +24,8 @@ const socials = [
     icon: <Page />,
   },
   {
-    href: "",
-    icon: <Mail />,
+    href: "https://leetcode.com/u/Sl1ceD1ce/",
+    icon: <Code />,
   },
 ];
 
