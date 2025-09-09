@@ -20,7 +20,7 @@ const socials = [
     icon: <Linkedin />,
   },
   {
-    href: "/JasonLukmanResume.pdf",
+    href: "./JasonLukmanResume.pdf",
     icon: <Page />,
   },
   {
