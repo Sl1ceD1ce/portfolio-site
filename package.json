@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://sl1ced1ce.github.io/portfolio-site/",
+  "homepage": "https://sl1ced1ce.github.io/portfolio-site",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
