@@ -94,10 +94,10 @@ function SocialButton({ icon, href }: SocialButtonProps) {
 }
 
 export function HeaderButtons() {
-  const [open, setOpen] = useState(false);
+  const [showNavbar, setShowNavbar] = useState(false);
 
   const toggleVisibility = () => {
-    setOpen(!open);
+    setShowNavbar(!showNavbar);
   };
 
   return (
@@ -105,7 +105,7 @@ export function HeaderButtons() {
       <ColorThemeButton />
       <nav>
         <button className="MenuToggle" onClick={toggleVisibility}>
-          {open ? (
+          {showNavbar ? (
             <IconoirProvider
               iconProps={{
                 width: "2.5em",

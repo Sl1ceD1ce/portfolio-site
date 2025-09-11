@@ -27,9 +27,6 @@
 .ColorThemeButton {
   background: transparent;
   border-color: transparent;
-  position: fixed;
-  left: 2em;
-  top: 2em;
 }
 
 .ColorThemeButton:hover {
@@ -42,6 +39,7 @@ header {
   position: absolute;
   top: 2em;
   right: 2em;
+  left: 2em;
 }
 
 header nav {
