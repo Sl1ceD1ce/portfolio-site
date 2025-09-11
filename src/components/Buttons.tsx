@@ -102,6 +102,7 @@ export function HeaderButtons() {
 
   return (
     <header>
+      <ColorThemeButton />
       <nav>
         <button className="MenuToggle" onClick={toggleVisibility}>
           {open ? (

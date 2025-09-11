@@ -1,4 +1,4 @@
-import { SocialsButtons, ColorThemeButton } from "../components/Buttons";
+import { SocialsButtons } from "../components/Buttons";
 import { Introduction, IntroductionInfo } from "../components/Introduction";
 import "./home.css";
 import "animate.css";
@@ -8,7 +8,6 @@ function Home() {
   // Todo: add the menu page button to access other parts of the site
   return (
     <div>
-      <ColorThemeButton />
       <div className="animate__animated animate__fadeIn CenterBox">
         <Introduction />
         <IntroductionInfo />
