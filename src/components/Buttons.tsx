@@ -32,7 +32,7 @@ const socials = [
   },
 ];
 
-export function ColorThemeButton() {
+function ColorThemeButton() {
   const { darkMode, toggleTheme } = useUserContext();
 
   return (
