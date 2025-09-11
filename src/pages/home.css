@@ -1,4 +1,4 @@
-.HeaderBox {
+.CenterBox {
   padding-left: 2%;
   padding-right: 2%;
   position: absolute;
@@ -11,4 +11,8 @@
   border-radius: 4px 4px 4px 4px;
   -webkit-box-shadow: 6px 10px 2px -2px #000000;
   box-shadow: 6px 10px 2px -2px #000000;
+}
+
+.animate__animated.animate__fadeIn {
+  --animate-duration: 3s;
 }

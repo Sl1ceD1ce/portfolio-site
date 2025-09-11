@@ -35,3 +35,30 @@
 .ColorThemeButton:hover {
   transform: scale(1.15);
 }
+/*change */
+header {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 2em;
+  right: 2em;
+}
+
+header nav {
+  display: flex;
+  gap: 20px;
+}
+
+.MenuToggle {
+  background: transparent;
+  border-color: transparent;
+  color: var(--button-color);
+}
+
+.MenuToggle:hover {
+  transform: scale(1.15);
+}
+
+.MenuContent {
+  margin-right: auto;
+}

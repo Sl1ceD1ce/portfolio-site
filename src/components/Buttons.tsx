@@ -6,9 +6,12 @@ import {
   Code,
   SunLight,
   HalfMoon,
+  Menu,
+  Xmark,
 } from "iconoir-react";
 import "./Components.css";
 import { useUserContext } from "../UserContext.tsx";
+import { useState } from "react";
 
 const socials = [
   {
@@ -29,7 +32,6 @@ const socials = [
   },
 ];
 
-// create user context to access the dark mode state
 export function ColorThemeButton() {
   const { darkMode, toggleTheme } = useUserContext();
 
@@ -88,5 +90,43 @@ function SocialButton({ icon, href }: SocialButtonProps) {
     <a className="SocialButton" href={href} target="_blank">
       {icon}
     </a>
+  );
+}
+
+export function HeaderButtons() {
+  const [open, setOpen] = useState(false);
+
+  const toggleVisibility = () => {
+    setOpen(!open);
+  };
+
+  return (
+    <header>
+      <nav>
+        <button className="MenuToggle" onClick={toggleVisibility}>
+          {open ? (
+            <IconoirProvider
+              iconProps={{
+                width: "2.5em",
+                height: "2.5em",
+                strokeWidth: 1.5,
+              }}
+            >
+              <Xmark />
+            </IconoirProvider>
+          ) : (
+            <IconoirProvider
+              iconProps={{
+                width: "2.5em",
+                height: "2.5em",
+                strokeWidth: 1.5,
+              }}
+            >
+              <Menu />
+            </IconoirProvider>
+          )}
+        </button>
+      </nav>
+    </header>
   );
 }
