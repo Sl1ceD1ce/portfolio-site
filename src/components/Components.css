@@ -47,16 +47,21 @@ header nav {
   gap: 20px;
 }
 
-.MenuToggle {
+.navBarButtons {
   background: transparent;
   border-color: transparent;
   color: var(--button-color);
 }
 
-.MenuToggle:hover {
+.navBarButtons:hover {
   transform: scale(1.15);
 }
 
-.MenuContent {
+.navContent {
   margin-right: auto;
+}
+
+.navBarFlexBox {
+  display: flex;
+  justify-content: space-;
 }

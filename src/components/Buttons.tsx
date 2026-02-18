@@ -8,7 +8,11 @@ import {
   HalfMoon,
   Menu,
   Xmark,
+  Folder,
+  InfoCircle,
+  Link,
 } from "iconoir-react";
+
 import "./Components.css";
 import { useUserContext } from "../UserContext.tsx";
 import { useState } from "react";
@@ -29,6 +33,18 @@ const socials = [
   {
     href: "https://leetcode.com/u/Sl1ceD1ce/",
     icon: <Code />,
+  },
+];
+
+const navLinks = [
+  {
+    icon: <Folder />,
+  },
+  {
+    icon: <InfoCircle />,
+  },
+  {
+    icon: <Link />,
   },
 ];
 
@@ -93,7 +109,7 @@ function SocialButton({ icon, href }: SocialButtonProps) {
   );
 }
 
-export function HeaderButtons() {
+export function NavBar() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   const toggleVisibility = () => {
@@ -104,29 +120,49 @@ export function HeaderButtons() {
     <header>
       <ColorThemeButton />
       <nav>
-        <button className="MenuToggle" onClick={toggleVisibility}>
-          {showNavbar ? (
-            <IconoirProvider
-              iconProps={{
-                width: "2.5em",
-                height: "2.5em",
-                strokeWidth: 1.5,
-              }}
-            >
-              <Xmark />
-            </IconoirProvider>
-          ) : (
-            <IconoirProvider
-              iconProps={{
-                width: "2.5em",
-                height: "2.5em",
-                strokeWidth: 1.5,
-              }}
-            >
-              <Menu />
-            </IconoirProvider>
+        <div className="navBarFlexBox">
+          {showNavbar && (
+            <div className="navLinks">
+              <IconoirProvider
+                iconProps={{
+                  strokeWidth: 1.5,
+                  width: "2.5em",
+                  height: "2.5em",
+                }}
+              >
+                {navLinks.map((link, index) => (
+                  <button className="navBarButtons" key={index}>
+                    {link.icon}
+                  </button>
+                ))}
+              </IconoirProvider>
+            </div>
           )}
-        </button>
+          <button className="navBarButtons" onClick={toggleVisibility}>
+            {showNavbar ? (
+              <IconoirProvider
+                iconProps={{
+                  width: "2.5em",
+                  height: "2.5em",
+                  strokeWidth: 1.5,
+                }}
+              >
+                .
+                <Xmark />
+              </IconoirProvider>
+            ) : (
+              <IconoirProvider
+                iconProps={{
+                  width: "2.5em",
+                  height: "2.5em",
+                  strokeWidth: 1.5,
+                }}
+              >
+                <Menu />
+              </IconoirProvider>
+            )}
+          </button>
+        </div>
       </nav>
     </header>
   );

@@ -1,11 +1,11 @@
 import Home from "./pages/home";
 import UserContextProvider from "./UserContext";
-import { HeaderButtons } from "./components/Buttons";
+import { NavBar } from "./components/Buttons";
 
 function App() {
   return (
     <UserContextProvider>
-      <HeaderButtons />
+      <NavBar />
       <Home />
     </UserContextProvider>
   );
