@@ -147,7 +147,6 @@ export function NavBar() {
                   strokeWidth: 1.5,
                 }}
               >
-                .
                 <Xmark />
               </IconoirProvider>
             ) : (
