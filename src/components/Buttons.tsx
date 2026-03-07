@@ -6,47 +6,59 @@ import {
   Code,
   SunLight,
   HalfMoon,
-  Menu,
-  Xmark,
   Folder,
   InfoCircle,
-  Link,
 } from "iconoir-react";
 
 import "./Components.css";
 import { useUserContext } from "../UserContext.tsx";
-import { useState } from "react";
+import { usePopupContext } from "../PopUpContext.tsx";
+import type { PopupType } from "../PopUpContext.tsx";
 
 const socials = [
   {
     href: "https://github.com/Sl1ceD1ce",
     icon: <Github />,
+    label: "Github",
   },
   {
     href: "https://www.linkedin.com/in/jason-lukman-3574b728a",
     icon: <Linkedin />,
+    label: "Linkedin",
   },
   {
     href: "./JasonLukmanResume.pdf",
     icon: <Page />,
+    label: "Resume",
   },
   {
     href: "https://leetcode.com/u/Sl1ceD1ce/",
     icon: <Code />,
+    label: "Leetcode",
   },
 ];
 
-const navLinks = [
-  {
-    icon: <Folder />,
-  },
+type SocialButtonProps = {
+  icon: React.ReactElement;
+  href: string;
+  label: string;
+};
+
+const PopUpLinks: PopUpLinksProps[] = [
   {
     icon: <InfoCircle />,
+    label: "About",
   },
   {
-    icon: <Link />,
+    icon: <Folder />,
+    label: "Projects",
   },
 ];
+
+type PopUpLinksProps = {
+  icon: React.ReactElement;
+  label: PopupType;
+};
 
 function ColorThemeButton() {
   const { darkMode, toggleTheme } = useUserContext();
@@ -78,9 +90,9 @@ function ColorThemeButton() {
   );
 }
 
-export function SocialsButtons() {
+export function NavButtons() {
   return (
-    <div className="SocialsButtonContainer">
+    <nav className="NavButtonContainer">
       <IconoirProvider
         iconProps={{
           strokeWidth: 1.3,
@@ -88,81 +100,40 @@ export function SocialsButtons() {
           height: "2.5em",
         }}
       >
-        {socials.map(({ href, icon }) => (
-          <SocialButton icon={icon} href={href} />
+        {PopUpLinks.map(({ icon, label }) => (
+          <PopUpButtons key={label} icon={icon} label={label} />
+        ))}
+
+        {socials.map(({ href, icon, label }) => (
+          <SocialButton key={label} icon={icon} href={href} label={label} />
         ))}
       </IconoirProvider>
-    </div>
+    </nav>
   );
 }
 
-type SocialButtonProps = {
-  icon: React.ReactElement;
-  href: string;
-};
-
-function SocialButton({ icon, href }: SocialButtonProps) {
+function SocialButton({ icon, href, label }: SocialButtonProps) {
   return (
     <a className="SocialButton" href={href} target="_blank">
-      {icon}
+      {icon} <label>{label}</label>
     </a>
   );
 }
 
-export function NavBar() {
-  const [showNavbar, setShowNavbar] = useState(false);
+function PopUpButtons({ icon, label }: PopUpLinksProps) {
+  const { openPopup } = usePopupContext();
 
-  const toggleVisibility = () => {
-    setShowNavbar(!showNavbar);
-  };
+  return (
+    <button className="SocialButton" onClick={() => openPopup(label)}>
+      {icon} <label>{label}</label>
+    </button>
+  );
+}
 
+export function Header() {
   return (
     <header>
       <ColorThemeButton />
-      <nav>
-        <div className="navBarFlexBox">
-          {showNavbar && (
-            <div className="navLinks">
-              <IconoirProvider
-                iconProps={{
-                  strokeWidth: 1.5,
-                  width: "2.5em",
-                  height: "2.5em",
-                }}
-              >
-                {navLinks.map((link, index) => (
-                  <button className="navBarButtons" key={index}>
-                    {link.icon}
-                  </button>
-                ))}
-              </IconoirProvider>
-            </div>
-          )}
-          <button className="navBarButtons" onClick={toggleVisibility}>
-            {showNavbar ? (
-              <IconoirProvider
-                iconProps={{
-                  width: "2.5em",
-                  height: "2.5em",
-                  strokeWidth: 1.5,
-                }}
-              >
-                <Xmark />
-              </IconoirProvider>
-            ) : (
-              <IconoirProvider
-                iconProps={{
-                  width: "2.5em",
-                  height: "2.5em",
-                  strokeWidth: 1.5,
-                }}
-              >
-                <Menu />
-              </IconoirProvider>
-            )}
-          </button>
-        </div>
-      </nav>
     </header>
   );
 }

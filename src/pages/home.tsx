@@ -1,5 +1,6 @@
-import { SocialsButtons } from "../components/Buttons";
+import { NavButtons } from "../components/Buttons";
 import { Introduction, IntroductionInfo } from "../components/Introduction";
+import { AboutPopup, ProjectsPopup } from "../components/PopUps";
 import "./home.css";
 import "animate.css";
 
@@ -9,7 +10,9 @@ function Home() {
       <div className="animate__animated animate__fadeIn CenterBox">
         <Introduction />
         <IntroductionInfo />
-        <SocialsButtons />
+        <NavButtons />
+        <AboutPopup />
+        <ProjectsPopup />
       </div>
     </div>
   );

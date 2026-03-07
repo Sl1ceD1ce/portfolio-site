@@ -1,12 +1,15 @@
 import Home from "./pages/home";
 import UserContextProvider from "./UserContext";
-import { NavBar } from "./components/Buttons";
+import { PopupProvider } from "./PopUpContext";
+import { Header } from "./components/Buttons";
 
 function App() {
   return (
     <UserContextProvider>
-      <NavBar />
-      <Home />
+      <PopupProvider>
+        <Header />
+        <Home />
+      </PopupProvider>
     </UserContextProvider>
   );
 }

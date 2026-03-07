@@ -49,9 +49,6 @@ export default function UserContextProvider({
   };
 
   return (
-    <UserContext.Provider value={contextValue}>
-      {" "}
-      {children}
-    </UserContext.Provider>
+    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
   );
 }
