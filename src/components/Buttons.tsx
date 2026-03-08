@@ -68,8 +68,6 @@ function ColorThemeButton() {
       {darkMode ? (
         <IconoirProvider
           iconProps={{
-            width: "2.5em",
-            height: "2.5em",
             strokeWidth: 2,
           }}
         >
@@ -78,8 +76,6 @@ function ColorThemeButton() {
       ) : (
         <IconoirProvider
           iconProps={{
-            width: "2.5em",
-            height: "2.5em",
             strokeWidth: 2,
           }}
         >
@@ -96,8 +92,6 @@ export function NavButtons() {
       <IconoirProvider
         iconProps={{
           strokeWidth: 1.3,
-          width: "2.5em",
-          height: "2.5em",
         }}
       >
         {PopUpLinks.map(({ icon, label }) => (
@@ -124,7 +118,10 @@ function PopUpButtons({ icon, label }: PopUpLinksProps) {
   const { openPopup } = usePopupContext();
 
   return (
-    <button className="SocialButton" onClick={() => openPopup(label)}>
+    <button
+      className="SocialButton PopUpButtons"
+      onClick={() => openPopup(label)}
+    >
       {icon} <label>{label}</label>
     </button>
   );
