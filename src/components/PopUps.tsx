@@ -64,7 +64,7 @@ export function AboutPopup() {
       <span id="about-me-header">
         <img
           id="about-me-img"
-          src="/scout-cat.webp"
+          src="scout-cat.webp"
           alt="cat dressed up as an attack on titan scout!"
         />
         <span id="about-me-text-header">
