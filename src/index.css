@@ -8,6 +8,7 @@
   --button-color: black;
   --bg2-color: white;
   --border-color: black;
+  --highlight-color: #ff8559;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,12 +22,15 @@ body.dark {
   --button-color: white;
   --bg2-color: #1a1a1a;
   --border-color: white;
+  --highlight-color: #7df3e1;
 }
 
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
 }
 
 .ColorThemeButton {

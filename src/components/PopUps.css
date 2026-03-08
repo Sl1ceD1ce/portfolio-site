@@ -4,9 +4,9 @@
   left: 0;
   width: 100%;
   background: var(--bg2-color);
-  border-radius: 12px;
+  border-radius: 1rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  overflow: hidden;
+  padding-bottom: 2rem;
   z-index: 100;
 }
 
@@ -17,6 +17,7 @@
   background: var(--border-color);
   cursor: grab;
   user-select: none;
+  border-radius: 1rem 1rem 0rem 0rem;
 }
 
 .popup-titlebar:active {
@@ -24,11 +25,18 @@
 }
 
 .popup-content {
+  height: 20rem;
   margin: 0rem 2rem 0rem 2rem;
+  overflow-y: scroll;
 }
 
 .animate__animated.animate__zoomIn {
   --animate-duration: 0.5s;
+  transform-origin: top left;
+}
+
+.animate__animated.animate__zoomOut {
+  --animate-duration: 1s;
   transform-origin: top left;
 }
 
@@ -40,14 +48,14 @@
 }
 
 #about-me-header {
-  margin-top: 2rem;
   display: block;
   border-bottom: 2px solid #222222;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: 2rem;
-  padding: 0rem 2rem 1rem 2rem;
+  padding: 2rem 2rem 1rem 2rem;
+  margin-bottom: 1rem;
 }
 
 #about-me-text-header {
@@ -63,13 +71,18 @@
 }
 
 #about-me-title {
+  color: var(--highlight-color);
   font-weight: 600;
   font-size: 2rem;
   margin: 0;
 }
 
 #about-me-sub-title {
-  font-weight: 400;
+  font-weight: 600;
+}
+
+.email-link {
+  color: var(--highlight-color);
 }
 
 .popup-close {

@@ -5,6 +5,7 @@ export type PopupType = "About" | "Projects";
 
 interface PopupContextType {
   popups: Record<PopupType, boolean>;
+  closing: Record<PopupType, boolean>;
   openPopup: (popup: PopupType) => void;
   closePopup: (popup: PopupType) => void;
   closeAll: () => void;
@@ -26,16 +27,31 @@ export const PopupProvider = ({ children }: { children: ReactNode }) => {
     Projects: false,
   });
 
+  const [closing, setClosing] = useState<Record<PopupType, boolean>>({
+    About: false,
+    Projects: false,
+  });
+
   const openPopup = (popup: PopupType) =>
     setPopups((prev) => ({ ...prev, [popup]: true }));
 
-  const closePopup = (popup: PopupType) =>
-    setPopups((prev) => ({ ...prev, [popup]: false }));
+  const closePopup = (popup: PopupType) => {
+    setClosing((prev) => ({ ...prev, [popup]: true }));
+    setTimeout(() => {
+      setPopups((prev) => ({ ...prev, [popup]: false }));
+      setClosing((prev) => ({ ...prev, [popup]: false }));
+    }, 1000);
+  };
 
-  const closeAll = () => setPopups({ About: false, Projects: false });
+  const closeAll = () => {
+    (["About", "Projects"] as PopupType[]).forEach((popup) =>
+      closePopup(popup),
+    );
+  };
 
   const contextValue: PopupContextType = {
     popups,
+    closing,
     openPopup,
     closePopup,
     closeAll,
