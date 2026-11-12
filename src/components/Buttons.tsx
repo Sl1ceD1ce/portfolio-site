@@ -10,10 +10,16 @@ import {
   InfoCircle,
 } from "iconoir-react";
 
-import "./Components.css";
 import { useUserContext } from "../UserContext.tsx";
 import { usePopupContext } from "../PopUpContext.tsx";
 import type { PopupType } from "../PopUpContext.tsx";
+
+const iconSize = "size-6 shrink-0 min-[770px]:size-10";
+const buttonInteraction = `cursor-pointer text-ink focus-visible:outline-2 focus-visible:outline-offset-4
+  focus-visible:outline-frame motion-safe:transition-transform motion-safe:duration-150
+  motion-safe:ease-out motion-safe:hover:scale-115`;
+const navButtonStyle = `flex min-h-11 flex-col items-center justify-center min-[770px]:items-stretch ${buttonInteraction}`;
+const navLabelStyle = "pt-[10%] text-center text-[0.6rem] font-semibold";
 
 const socials = [
   {
@@ -27,7 +33,7 @@ const socials = [
     label: "Linkedin",
   },
   {
-    href: "./JasonLukmanResume.pdf",
+    href: `${import.meta.env.BASE_URL}JasonLukmanResume.pdf`,
     icon: <Page />,
     label: "Resume",
   },
@@ -62,36 +68,32 @@ type PopUpLinksProps = {
 
 function ColorThemeButton() {
   const { darkMode, toggleTheme } = useUserContext();
+  const ThemeIcon = darkMode ? HalfMoon : SunLight;
 
   return (
-    <button className="ColorThemeButton" onClick={toggleTheme}>
-      {darkMode ? (
-        <IconoirProvider
-          iconProps={{
-            strokeWidth: 2,
-          }}
-        >
-          <HalfMoon />
-        </IconoirProvider>
-      ) : (
-        <IconoirProvider
-          iconProps={{
-            strokeWidth: 2,
-          }}
-        >
-          <SunLight />
-        </IconoirProvider>
-      )}
+    <button
+      type="button"
+      className={buttonInteraction}
+      aria-label="Dark mode"
+      aria-pressed={darkMode}
+      onClick={toggleTheme}
+    >
+      <ThemeIcon aria-hidden="true" className={iconSize} strokeWidth={2} />
     </button>
   );
 }
 
 export function NavButtons() {
   return (
-    <nav className="NavButtonContainer">
+    <nav
+      aria-label="Portfolio"
+      className="grid grid-cols-3 pb-[3%] min-[320px]:grid-cols-6 min-[770px]:flex min-[770px]:gap-12"
+    >
       <IconoirProvider
         iconProps={{
           strokeWidth: 1.3,
+          className: iconSize,
+          "aria-hidden": true,
         }}
       >
         {PopUpLinks.map(({ icon, label }) => (
@@ -108,28 +110,34 @@ export function NavButtons() {
 
 function SocialButton({ icon, href, label }: SocialButtonProps) {
   return (
-    <a className="SocialButton" href={href} target="_blank">
-      {icon} <label>{label}</label>
+    <a className={navButtonStyle} href={href} target="_blank" rel="noopener noreferrer">
+      {icon}
+      <span className={navLabelStyle}>{label}</span>
     </a>
   );
 }
 
 function PopUpButtons({ icon, label }: PopUpLinksProps) {
-  const { openPopup } = usePopupContext();
+  const { closePopup, openPopup, popups } = usePopupContext();
 
   return (
     <button
-      className="SocialButton PopUpButtons"
-      onClick={() => openPopup(label)}
+      type="button"
+      className={navButtonStyle}
+      aria-haspopup="dialog"
+      aria-expanded={popups[label]}
+      aria-controls={`${label.toLowerCase()}-popup`}
+      onClick={() => (popups[label] ? closePopup(label) : openPopup(label))}
     >
-      {icon} <label>{label}</label>
+      {icon}
+      <span className={navLabelStyle}>{label}</span>
     </button>
   );
 }
 
 export function Header() {
   return (
-    <header>
+    <header className="absolute inset-x-8 top-8 flex justify-between">
       <ColorThemeButton />
     </header>
   );
